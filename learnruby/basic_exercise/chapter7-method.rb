@@ -60,11 +60,11 @@ myloop do
   num *= 2
 end
 
-def foo(*arg)
-  arg
-end
-
-p foo(1,2,3,4,5,6,7)
+# def foo(*arg)
+#   arg
+# end
+#
+# p foo(1,2,3,4,5,6,7)
 
 def meth(arg, *args)
   [arg, args]

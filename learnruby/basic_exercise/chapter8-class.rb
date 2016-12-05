@@ -150,3 +150,76 @@ p [p0.x, p0.y]
 p [p1.x, p1.y]
 
 # p0.x = 20.1 ＃ 会报错
+
+class String
+  def count_word
+    ary = self.split(/\s+/)
+    return ary.size
+  end
+end
+
+str = "I am a Ruby developer"
+p str.count_word
+
+
+class WeekArray < Array
+  def [](i)
+    idx = i / size
+    super(idx)
+  end
+end
+
+wday = WeekArray["Mon", "Tue", "Wed", "Thur", "Fir"]
+p wday[6]
+p wday[-1]
+p wday[0]
+
+class C1
+  def hello
+    puts "hello"
+  end
+end
+
+class C2 < C1
+  # 这两种方法都可以，用别名定义方法
+  # alias_method :hello_old, :hello
+  alias hello_old hello
+
+  def hello
+    puts "hello new one"
+  end
+
+  def say_hi
+    puts "hi"
+  end
+  # 通常用来删除某一个父类的方法
+  undef :say_hi
+end
+
+c2obj = C2.new
+c2obj.hello_old
+c2obj.hello
+# c2obj.say_hi  # say_hi 被 undef了
+
+str1 = "Ruby"
+str2 = "Ruby"
+
+# 为对象str1添加单例方法, 用于增强某对象的功能
+class << str1
+  def hello
+    "Hello, #{self}"
+  end
+end
+
+p str1.hello
+# str2.hello
+
+
+
+
+
+
+
+
+
+
