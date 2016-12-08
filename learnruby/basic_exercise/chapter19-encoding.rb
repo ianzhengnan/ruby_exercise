@@ -1,0 +1,6 @@
+
+# encoding: GBK
+
+str = "ÄãºÃ".encode!("GBK")
+
+puts str
